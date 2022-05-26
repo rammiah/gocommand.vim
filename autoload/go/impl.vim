@@ -1,5 +1,4 @@
 " copy from fatih/vim-go
-
 " don't spam the user when Vim is started in Vi compatibility mode
 let s:cpo_save = &cpo
 set cpo&vim
@@ -155,7 +154,7 @@ function! go#impl#Complete(arglead, cmdline, cursorpos) abort
     return s:uniq(sort(s:go_packages(s:root_dirs(), a:arglead)))
   elseif words[-1] =~# '^\h\w.*\.\%(\h\w*\)\=$'
     " match the following, anything that could indicate an interface candidate
-    "
+    " 
     "  io.
     "  io.Wr
     "  github.com/fatih/color.
@@ -174,5 +173,4 @@ endfunction
 let &cpo = s:cpo_save
 unlet s:cpo_save
 
-command! -nargs=* -complete=customlist,go#impl#Complete GoImpl call go#impl#Impl(<f-args>)
 " vim: sw=2 ts=2 et
